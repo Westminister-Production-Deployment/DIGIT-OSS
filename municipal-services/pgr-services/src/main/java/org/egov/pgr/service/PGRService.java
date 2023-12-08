@@ -14,16 +14,18 @@ import org.egov.pgr.web.models.ServiceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 
 @org.springframework.stereotype.Service
+@Slf4j
 public class PGRService {
 
 
-	private static final Logger LOGGER = Logger.getLogger(PGRService.class);
-	
     private EnrichmentService enrichmentService;
 
     private UserService userService;
@@ -63,15 +65,22 @@ public class PGRService {
      * Creates a complaint in the system
      * @param request The service request containg the complaint information
      * @return
+     * @throws JsonProcessingException 
      */
-    public ServiceRequest create(ServiceRequest request){
+    public ServiceRequest create(ServiceRequest request) throws JsonProcessingException{
         Object mdmsData = mdmsUtils.mDMSCall(request);
         validator.validateCreate(request, mdmsData);
         enrichmentService.enrichCreateRequest(request);
         workflowService.updateWorkflowStatus(request);
         ObjectMapper objectMapper = new ObjectMapper();
-        String requestJson = objectMapper.writeValueAsString(request);
-        LOGGER.info("Request JSON: " + requestJson);
+        String requestJson;
+		try {
+			requestJson = objectMapper.writeValueAsString(request);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        log.info("Request JSON: " + requestJson);
         producer.push(config.getCreateTopic(),request);
         return request;
     }
