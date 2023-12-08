@@ -8,10 +8,13 @@ import org.egov.pgr.repository.PGRRepository;
 import org.egov.pgr.util.MDMSUtils;
 import org.egov.pgr.validator.ServiceRequestValidator;
 import org.egov.pgr.web.models.ServiceWrapper;
+import java.util.logging.Logger;
 import org.egov.pgr.web.models.RequestSearchCriteria;
 import org.egov.pgr.web.models.ServiceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.*;
 
@@ -19,7 +22,8 @@ import java.util.*;
 public class PGRService {
 
 
-
+	private static final Logger LOGGER = Logger.getLogger(PGRService.class);
+	
     private EnrichmentService enrichmentService;
 
     private UserService userService;
@@ -65,6 +69,9 @@ public class PGRService {
         validator.validateCreate(request, mdmsData);
         enrichmentService.enrichCreateRequest(request);
         workflowService.updateWorkflowStatus(request);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String requestJson = objectMapper.writeValueAsString(request);
+        LOGGER.info("Request JSON: " + requestJson);
         producer.push(config.getCreateTopic(),request);
         return request;
     }
