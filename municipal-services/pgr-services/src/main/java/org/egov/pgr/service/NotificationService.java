@@ -155,8 +155,9 @@ public class NotificationService {
      * @param topic Topic Name
      * @param applicationStatus Application Status
      * @return Returns list of SMSRequest
+     * @throws JsonProcessingException 
      */
-    private Map<String, List<String>> getFinalMessage(ServiceRequest request, String topic, String applicationStatus) {
+    private Map<String, List<String>> getFinalMessage(ServiceRequest request, String topic, String applicationStatus) throws JsonProcessingException {
         String tenantId = request.getService().getTenantId();
         String localizationMessage = notificationUtil.getLocalizationMessages(tenantId, request.getRequestInfo(),PGR_MODULE);
 
