@@ -85,34 +85,36 @@ config:
       - work-dir: "business-services/dashboard-ingest"
         image-name: "dashboard-ingest"
         dockerfile: "build/maven/Dockerfile"
+
   - name: "builds/digit-dev/core-services/egov-accesscontrol"
     build:
       - work-dir: "core-services/egov-accesscontrol"
         image-name: "egov-accesscontrol"
         dockerfile: "build/maven/Dockerfile"
-# Core Services
-  - name: "builds/digit-dev/core-services/audit-service"
-    build:
-      - work-dir: "core-services/audit-service"
-        image-name: "audit-service"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/audit-service/src/main/resources/db"
-        image-name: "audit-service-db"
-  - name: "builds/digit-dev/core-services/egov-common-masters"
-    build:
-      - work-dir: "core-services/egov-common-masters"
-        image-name: "egov-common-masters"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/egov-common-masters/src/main/resources/db"
-        image-name: "egov-common-masters-db"
 
-  - name: "builds/digit-dev/core-services/egov-data-uploader"
-    build:
-      - work-dir: "core-services/egov-data-uploader"
-        image-name: "egov-data-uploader"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/egov-data-uploader/src/main/resources/db"
-        image-name: "egov-data-uploader-db"
+# # Core Services
+#   - name: "builds/digit-dev/core-services/audit-service"
+#     build:
+#       - work-dir: "core-services/audit-service"
+#         image-name: "audit-service"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "core-services/audit-service/src/main/resources/db"
+#         image-name: "audit-service-db"
+#   - name: "builds/digit-dev/core-services/egov-common-masters"
+#     build:
+#       - work-dir: "core-services/egov-common-masters"
+#         image-name: "egov-common-masters"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "core-services/egov-common-masters/src/main/resources/db"
+#         image-name: "egov-common-masters-db"
+
+#   - name: "builds/digit-dev/core-services/egov-data-uploader"
+#     build:
+#       - work-dir: "core-services/egov-data-uploader"
+#         image-name: "egov-data-uploader"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "core-services/egov-data-uploader/src/main/resources/db"
+#         image-name: "egov-data-uploader-db"
 
   - name: "builds/digit-dev/core-services/egov-enc-service"
     build:
@@ -208,11 +210,11 @@ config:
         image-name: "egov-searcher"
         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/core-services/egov-telemetry"
-    build:
-      - work-dir: "core-services/egov-telemetry"
-        image-name: "egov-telemetry"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/core-services/egov-telemetry"
+#     build:
+#       - work-dir: "core-services/egov-telemetry"
+#         image-name: "egov-telemetry"
+#         dockerfile: "build/maven/Dockerfile"
 
   - name: "builds/digit-dev/core-services/egov-user"
     build:
@@ -238,13 +240,13 @@ config:
       - work-dir: "core-services/egov-document-uploader/src/main/resources/db"
         image-name: "egov-document-uploader-db"
 
-  - name: "builds/digit-dev/core-services/national-dashboard-ingest"
-    build:
-      - work-dir: "core-services/national-dashboard-ingest"
-        image-name: "national-dashboard-ingest"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/national-dashboard-ingest/src/main/resources/db"
-        image-name: "national-dashboard-ingest-db"
+#   - name: "builds/digit-dev/core-services/national-dashboard-ingest"
+#     build:
+#       - work-dir: "core-services/national-dashboard-ingest"
+#         image-name: "national-dashboard-ingest"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "core-services/national-dashboard-ingest/src/main/resources/db"
+#         image-name: "national-dashboard-ingest-db"
 
   - name: "builds/digit-dev/core-services/national-dashboard-kafka-pipeline"
     build:
@@ -252,21 +254,21 @@ config:
         image-name: "national-dashboard-kafka-pipeline"
         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/core-services/egov-survey-services"
-    build:
-      - work-dir: "core-services/egov-survey-services"
-        image-name: "egov-survey-services"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/egov-survey-services/src/main/resources/db"
-        image-name: "egov-survey-services-db"
+#   - name: "builds/digit-dev/core-services/egov-survey-services"
+#     build:
+#       - work-dir: "core-services/egov-survey-services"
+#         image-name: "egov-survey-services"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "core-services/egov-survey-services/src/main/resources/db"
+#         image-name: "egov-survey-services-db"
 
-  - name: "builds/digit-dev/core-services/service-request"
-    build:
-      - work-dir: "core-services/service-request"
-        image-name: "service-request"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/service-request/src/main/resources/db"
-        image-name: "service-request-db"
+#   - name: "builds/digit-dev/core-services/service-request"
+#     build:
+#       - work-dir: "core-services/service-request"
+#         image-name: "service-request"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "core-services/service-request/src/main/resources/db"
+#         image-name: "service-request-db"
 
 
   - name: "builds/digit-dev/core-services/report"
@@ -275,13 +277,13 @@ config:
         image-name: "report"
         dockerfile: "build/maven/Dockerfile"   
 
-  - name: "builds/digit-dev/core-services/tenant"
-    build:
-      - work-dir: "core-services/tenant"
-        image-name: "tenant"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/tenant/src/main/resources/db"
-        image-name: "tenant-db"
+#   - name: "builds/digit-dev/core-services/tenant"
+#     build:
+#       - work-dir: "core-services/tenant"
+#         image-name: "tenant"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "core-services/tenant/src/main/resources/db"
+#         image-name: "tenant-db"
 
   - name: "builds/digit-dev/core-services/user-otp"
     build:
@@ -295,19 +297,19 @@ config:
         image-name: "zuul"
         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/core-services/internal-gateway"
-    build:
-      - work-dir: "core-services/internal-gateway"
-        image-name: "internal-gateway"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/core-services/internal-gateway"
+#     build:
+#       - work-dir: "core-services/internal-gateway"
+#         image-name: "internal-gateway"
+#         dockerfile: "build/maven/Dockerfile"
         
-  - name: "builds/digit-dev/core-services/egov-user-event"
-    build:
-      - work-dir: "core-services/egov-user-event"
-        image-name: "egov-user-event"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "core-services/egov-user-event/src/main/resources/db"
-        image-name: "egov-user-event-db"       
+  # - name: "builds/digit-dev/core-services/egov-user-event"
+  #   build:
+  #     - work-dir: "core-services/egov-user-event"
+  #       image-name: "egov-user-event"
+  #       dockerfile: "build/maven/Dockerfile"
+  #     - work-dir: "core-services/egov-user-event/src/main/resources/db"
+  #       image-name: "egov-user-event-db"       
 
   - name: "builds/digit-dev/core-services/pdf-service"
     build:
@@ -316,16 +318,16 @@ config:
       - work-dir: "core-services/pdf-service/migration"
         image-name: "pdf-service-db"
         
-  - name: "builds/digit-dev/core-services/telemetry/egov-telemetry-kafka-streams"
-    build:
-      - work-dir: "core-services/egov-telemetry/egov-telemetry-kafka-streams"
-        image-name: "egov-telemetry-kafka-streams"
+#   - name: "builds/digit-dev/core-services/telemetry/egov-telemetry-kafka-streams"
+#     build:
+#       - work-dir: "core-services/egov-telemetry/egov-telemetry-kafka-streams"
+#         image-name: "egov-telemetry-kafka-streams"
 
-  - name: "builds/digit-dev/core-services/telemetry/egov-telemetry-batch-process"
-    build:
-      - work-dir: "core-services/egov-telemetry/egov-telemetry-batch-process"
-        image-name: "egov-telemetry-batch-process"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/core-services/telemetry/egov-telemetry-batch-process"
+#     build:
+#       - work-dir: "core-services/egov-telemetry/egov-telemetry-batch-process"
+#         image-name: "egov-telemetry-batch-process"
+#         dockerfile: "build/maven/Dockerfile"
   
   - name: "builds/digit-dev/core-services/egov-url-shortening"
     build:
@@ -343,10 +345,10 @@ config:
       - work-dir: "core-services/chatbot/src/main/resources/db"
         image-name: "chatbot-db"
         
-  - name: "builds/digit-dev/core-services/http-to-kafka-connector"
-    build:
-      - work-dir: "core-services/http-to-kafka-connector"
-        image-name: "whatsapp-webhook"
+#   - name: "builds/digit-dev/core-services/http-to-kafka-connector"
+#     build:
+#       - work-dir: "core-services/http-to-kafka-connector"
+#         image-name: "whatsapp-webhook"
 
   - name: "builds/digit-dev/core-services/egov-user-chatbot"
     build:
@@ -354,31 +356,31 @@ config:
         image-name: "egov-user-chatbot"
         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/core-services/mailbot"
-    build:
-      - work-dir: "core-services/mailbot"
-        image-name: "mailbot"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/core-services/mailbot"
+#     build:
+#       - work-dir: "core-services/mailbot"
+#         image-name: "mailbot"
+#         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/core-services/libraries/enc-client"
-    build:
-      - work-dir: "core-services/libraries/enc-client"
-        image-name: "enc-client"
+#   - name: "builds/digit-dev/core-services/libraries/enc-client"
+#     build:
+#       - work-dir: "core-services/libraries/enc-client"
+#         image-name: "enc-client"
 
-  - name: "builds/digit-dev/core-services/libraries/services-common"
-    build:
-      - work-dir: "core-services/libraries/services-common"
-        image-name: "services-common"
+#   - name: "builds/digit-dev/core-services/libraries/services-common"
+#     build:
+#       - work-dir: "core-services/libraries/services-common"
+#         image-name: "services-common"
         
-  - name: "builds/digit-dev/core-services/libraries/digit-models"
-    build:
-      - work-dir: "core-services/libraries/digit-models"
-        image-name: "digit-models"
+#   - name: "builds/digit-dev/core-services/libraries/digit-models"
+#     build:
+#       - work-dir: "core-services/libraries/digit-models"
+#         image-name: "digit-models"
         
-  - name: "builds/digit-dev/core-services/libraries/tracer"
-    build:
-      - work-dir: "core-services/libraries/tracer"
-        image-name: "tracer"
+#   - name: "builds/digit-dev/core-services/libraries/tracer"
+#     build:
+#       - work-dir: "core-services/libraries/tracer"
+#         image-name: "tracer"
 
   - name: "builds/digit-dev/core-services/nlp-engine"
     build:
@@ -393,12 +395,12 @@ config:
       - work-dir: "core-services/xstate-chatbot/nodejs/db"
         image-name: "xstate-chatbot-db"
 
-  - name: "builds/digit-dev/core-services/xstate-webchat"
-    build:
-      - work-dir: "core-services/xstate-webchat/nodejs"
-        image-name: "xstate-webchat"
-      - work-dir: "core-services/xstate-webchat/nodejs/db"
-        image-name: "xstate-webchat-db"
+#   - name: "builds/digit-dev/core-services/xstate-webchat"
+#     build:
+#       - work-dir: "core-services/xstate-webchat/nodejs"
+#         image-name: "xstate-webchat"
+#       - work-dir: "core-services/xstate-webchat/nodejs/db"
+#         image-name: "xstate-webchat-db"
 
         
 #Municipal Services
@@ -590,11 +592,11 @@ config:
       - work-dir: "municipal-services/fsm-calculator/src/main/resources/db"
         image-name: "fsm-calculator-db"
         
-  - name: "builds/digit-dev/municipal-services/turn-io-adapter"
-    build:
-      - work-dir: "municipal-services/turn-io-adapter"
-        image-name: "turn-io-adapter"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/municipal-services/turn-io-adapter"
+#     build:
+#       - work-dir: "municipal-services/turn-io-adapter"
+#         image-name: "turn-io-adapter"
+#         dockerfile: "build/maven/Dockerfile"
         
   - name: "builds/digit-dev/municipal-services/inbox"
     build:
@@ -610,83 +612,83 @@ config:
       - work-dir: "municipal-services/birth-death-services/src/main/resources/db"
         image-name: "birth-death-services-db"
   
-  - name: "builds/digit-dev/municipal-services/birth-registration"
-    build:
-      - work-dir: "municipal-services/birth-registration"
-        image-name: "birth-registration"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "municipal-services/birth-registration/src/main/resources/db"
-        image-name: "birth-registration-db"
+#   - name: "builds/digit-dev/municipal-services/birth-registration"
+#     build:
+#       - work-dir: "municipal-services/birth-registration"
+#         image-name: "birth-registration"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "municipal-services/birth-registration/src/main/resources/db"
+#         image-name: "birth-registration-db"
  
- # Utilities
+#  # Utilities
  
-  - name: "builds/digit-dev/utilities/egov-weekly-impact-notifier"
-    build:
-      - work-dir: "utilities/egov-weekly-impact-notifier"
-        image-name: "egov-weekly-impact-notifier"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/utilities/egov-weekly-impact-notifier"
+#     build:
+#       - work-dir: "utilities/egov-weekly-impact-notifier"
+#         image-name: "egov-weekly-impact-notifier"
+#         dockerfile: "build/maven/Dockerfile"
         
-  - name: "builds/digit-dev/utilities/zuul-kubernetes-discovery"
-    build:
-      - work-dir: "utilities/zuul-kubernetes-discovery"
-        image-name: "zuul-kubernetes-discovery"  
+#   - name: "builds/digit-dev/utilities/zuul-kubernetes-discovery"
+#     build:
+#       - work-dir: "utilities/zuul-kubernetes-discovery"
+#         image-name: "zuul-kubernetes-discovery"  
 
-  - name: "builds/digit-dev/utilities/egov-api-cron-job"
-    build:
-      - work-dir: "utilities/egov-api-cron-job"
-        image-name: "egov-api-cron-job"
-        dockerfile: "build/python/Dockerfile"
+#   - name: "builds/digit-dev/utilities/egov-api-cron-job"
+#     build:
+#       - work-dir: "utilities/egov-api-cron-job"
+#         image-name: "egov-api-cron-job"
+#         dockerfile: "build/python/Dockerfile"
 
-  - name: "builds/digit-dev/utilities/kuberhealthy-checks"
-    build:
-      - work-dir: "utilities/kuberhealthy-checks"
-        image-name: "kuberhealthy-checks"
+#   - name: "builds/digit-dev/utilities/kuberhealthy-checks"
+#     build:
+#       - work-dir: "utilities/kuberhealthy-checks"
+#         image-name: "kuberhealthy-checks"
 
-  - name: "builds/digit-dev/utilities/egov-pdf"
-    build:
-      - work-dir: "utilities/egov-pdf"
-        image-name: "egov-pdf"  
+#   - name: "builds/digit-dev/utilities/egov-pdf"
+#     build:
+#       - work-dir: "utilities/egov-pdf"
+#         image-name: "egov-pdf"  
 
-  - name: "builds/digit-dev/utilities/epass-chatbot"
-    build:
-      - work-dir: "utilities/epass-chatbot"
-        image-name: "epass-chatbot"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/utilities/epass-chatbot"
+#     build:
+#       - work-dir: "utilities/epass-chatbot"
+#         image-name: "epass-chatbot"
+#         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/utilities/case-management"
-    build:
-      - work-dir: "utilities/case-management"
-        image-name: "case-management"
-        dockerfile: "build/maven/Dockerfile"
-      - work-dir: "utilities/case-management/src/main/resources/db"
-        image-name: "case-management-db"
+#   - name: "builds/digit-dev/utilities/case-management"
+#     build:
+#       - work-dir: "utilities/case-management"
+#         image-name: "case-management"
+#         dockerfile: "build/maven/Dockerfile"
+#       - work-dir: "utilities/case-management/src/main/resources/db"
+#         image-name: "case-management-db"
 
-  - name: "builds/digit-dev/utilities/data-upload"
-    build:
-      - work-dir: "utilities/data-upload"
-        image-name: "data-upload"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/utilities/data-upload"
+#     build:
+#       - work-dir: "utilities/data-upload"
+#         image-name: "data-upload"
+#         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/utilities/egov-custom-consumer"
-    build:
-      - work-dir: "utilities/egov-custom-consumer"
-        image-name: "egov-custom-consumer"
-        dockerfile: "build/maven/Dockerfile"
+#   - name: "builds/digit-dev/utilities/egov-custom-consumer"
+#     build:
+#       - work-dir: "utilities/egov-custom-consumer"
+#         image-name: "egov-custom-consumer"
+#         dockerfile: "build/maven/Dockerfile"
 
-  - name: "builds/digit-dev/utilities/certificate_signer"
-    build:
-      - work-dir: "utilities/certificate_signer"
-        image-name: "certificate_signer"
+#   - name: "builds/digit-dev/utilities/certificate_signer"
+#     build:
+#       - work-dir: "utilities/certificate_signer"
+#         image-name: "certificate_signer"
 
-  - name: "builds/digit-dev/utilities/certificate-verification"
-    build:
-      - work-dir: "utilities/certificate-verification"
-        image-name: "certificate-verification"
-  - name: "builds/digit-dev/utilities/demo-utility"
-    build:
-      - work-dir: "utilities/demo-utility"
-        image-name: "demo-utility"
-        dockerfile: "build/maven/Dockerfile"      
+#   - name: "builds/digit-dev/utilities/certificate-verification"
+#     build:
+#       - work-dir: "utilities/certificate-verification"
+#         image-name: "certificate-verification"
+#   - name: "builds/digit-dev/utilities/demo-utility"
+#     build:
+#       - work-dir: "utilities/demo-utility"
+#         image-name: "demo-utility"
+#         dockerfile: "build/maven/Dockerfile"      
 
   # Frontend
 
@@ -702,22 +704,22 @@ config:
         dockerfile: frontend/mono-ui/web/rainmaker/docker/employee/Dockerfile
         image-name: employee
 
-  - name: builds/digit-dev/frontend/mono-ui/employee-mcs
-    build:
-      - work-dir: frontend/mono-ui/web/rainmaker/
-        dockerfile: frontend/mono-ui/web/rainmaker/docker/employee-mcs/Dockerfile
-        image-name: employee-mcs
+#   - name: builds/digit-dev/frontend/mono-ui/employee-mcs
+#     build:
+#       - work-dir: frontend/mono-ui/web/rainmaker/
+#         dockerfile: frontend/mono-ui/web/rainmaker/docker/employee-mcs/Dockerfile
+#         image-name: employee-mcs
 
-  - name: builds/digit-dev/frontend/mono-ui/localization
-    build:
-      - work-dir: frontend/mono-ui/web/rainmaker/
-        dockerfile: frontend/mono-ui/web/rainmaker/docker/localization/Dockerfile
-        image-name: ui-localisation
+#   - name: builds/digit-dev/frontend/mono-ui/localization
+#     build:
+#       - work-dir: frontend/mono-ui/web/rainmaker/
+#         dockerfile: frontend/mono-ui/web/rainmaker/docker/localization/Dockerfile
+#         image-name: ui-localisation
 
-  - name: builds/digit-dev/frontend/mono-ui/ui-uploader
-    build:
-      - work-dir: frontend/mono-ui/web/ui-uploader/
-        image-name: ui-uploader
+#   - name: builds/digit-dev/frontend/mono-ui/ui-uploader
+#     build:
+#       - work-dir: frontend/mono-ui/web/ui-uploader/
+#         image-name: ui-uploader
 
   - name: builds/digit-dev/frontend/mono-ui/dss-dashboard
     build:
@@ -725,11 +727,11 @@ config:
         dockerfile: frontend/mono-ui/web/dss-dashboard/docker/Dockerfile
         image-name: dss-dashboard
       
-  - name: builds/digit-dev/frontend/mono-ui/common-screen
-    build:
-      - work-dir: frontend/mono-ui/web/egov-common-screen/
-        dockerfile: frontend/mono-ui/web/egov-common-screen/docker/Dockerfile
-        image-name: common-screen
+#   - name: builds/digit-dev/frontend/mono-ui/common-screen
+#     build:
+#       - work-dir: frontend/mono-ui/web/egov-common-screen/
+#         dockerfile: frontend/mono-ui/web/egov-common-screen/docker/Dockerfile
+#         image-name: common-screen
 
   - name: builds/digit-dev/frontend/micro-ui/digit-ui
     build:
@@ -737,28 +739,28 @@ config:
         dockerfile: frontend/micro-ui/web/docker/Dockerfile
         image-name: digit-ui
 
-  - name: builds/digit-dev/frontend/micro-ui/storybook
-    build:
-    - work-dir: .
-      dockerfile: frontend/micro-ui/web/micro-ui-internals/packages/react-components/docker/Dockerfile
-      image-name: storybook
+#   - name: builds/digit-dev/frontend/micro-ui/storybook
+#     build:
+#     - work-dir: .
+#       dockerfile: frontend/micro-ui/web/micro-ui-internals/packages/react-components/docker/Dockerfile
+#       image-name: storybook
 
   
-  #EDCR
+#   #EDCR
   
-  - name: builds/digit-dev/edcr/dcr-client/egov-dcr
-    build:
-      - work-dir: edcr/client/egov
-        dockerfile: edcr/client/Dockerfile
-        image-name: egov-edcr
+#   - name: builds/digit-dev/edcr/dcr-client/egov-dcr
+#     build:
+#       - work-dir: edcr/client/egov
+#         dockerfile: edcr/client/Dockerfile
+#         image-name: egov-edcr
         
-  - name: builds/digit-dev/edcr/dcr-service/egov-dcr
-    build:
-      - work-dir: edcr/service/egov
-        dockerfile: edcr/service/Dockerfile
-        image-name: egov-edcr
+#   - name: builds/digit-dev/edcr/dcr-service/egov-dcr
+#     build:
+#       - work-dir: edcr/service/egov
+#         dockerfile: edcr/service/Dockerfile
+#         image-name: egov-edcr
               
-  #Finance
+#   #Finance
    
   - name: builds/digit-dev/finance/egov-finance
     build:
