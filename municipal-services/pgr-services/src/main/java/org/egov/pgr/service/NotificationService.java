@@ -1,5 +1,6 @@
 package org.egov.pgr.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import lombok.extern.slf4j.Slf4j;
@@ -487,6 +488,8 @@ public class NotificationService {
 
 
         String localisedComplaint = notificationUtil.getCustomizedMsgForPlaceholder(localizationMessage,"pgr.complaint.category."+request.getService().getServiceCode());
+        
+        log.info("localisedComplaint JSON##: " + localisedComplaint);
 
         Long createdTime = serviceWrapper.getService().getAuditDetails().getCreatedTime();
         LocalDate date = Instant.ofEpochMilli(createdTime > 10 ? createdTime : createdTime * 1000)
@@ -644,15 +647,21 @@ public class NotificationService {
 
     }
 
-    public Map<String, String> getHRMSEmployee(ServiceRequest request){
+    public Map<String, String> getHRMSEmployee(ServiceRequest request) throws JsonProcessingException{
         Map<String, String> reassigneeDetails = new HashMap<>();
         List<String> mdmsDepartmentList = null;
         List<String> hrmsDepartmentList = null;
         List<String> designation = null;
         List<String> employeeName = null;
         String departmentFromMDMS;
+        
+        ObjectMapper objectMapper = new ObjectMapper();
+        String requestJson = objectMapper.writeValueAsString(request);
+        log.info("Request JSON: " + requestJson);
 
         String localisationMessageForPlaceholder =  notificationUtil.getLocalizationMessages(request.getService().getTenantId(), request.getRequestInfo(),COMMON_MODULE);
+        
+        log.info("localisationMessageForPlaceholder JSON:3##"+ localisationMessageForPlaceholder);
         //HRSMS CALL
         StringBuilder url = hrmsUtils.getHRMSURI(request.getWorkflow().getAssignes());
         RequestInfoWrapper requestInfoWrapper = RequestInfoWrapper.builder().requestInfo(request.getRequestInfo()).build();
