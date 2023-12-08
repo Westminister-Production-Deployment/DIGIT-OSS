@@ -73,14 +73,14 @@ public class PGRService {
         enrichmentService.enrichCreateRequest(request);
         workflowService.updateWorkflowStatus(request);
         ObjectMapper objectMapper = new ObjectMapper();
-        String requestJson;
+        String jsonRequest = " ";
 		try {
-			requestJson = objectMapper.writeValueAsString(request);
+			jsonRequest = objectMapper.writeValueAsString(request);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        log.info("Request JSON: " + requestJson);
+        log.info("Request JSON: " + jsonRequest);
         producer.push(config.getCreateTopic(),request);
         return request;
     }
