@@ -114,6 +114,7 @@ public class NotificationService {
 
         if (message.contains("{complaint_type}")){
             String localisedComplaint = notificationUtil.getCustomizedMsgForPlaceholder(localizationMessage,"pgr.complaint.category."+request.getService().getServiceCode());
+            log.info("Localised Complaint:{},Message:{}",localisedComplaint,message);
             message = message.replace("{complaint_type}", localisedComplaint);
         }
 
