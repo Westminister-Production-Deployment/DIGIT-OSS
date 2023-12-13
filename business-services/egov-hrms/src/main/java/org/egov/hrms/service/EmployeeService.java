@@ -249,6 +249,7 @@ public class EmployeeService {
 		employee.getUser().setUserName(employee.getCode());
 		employee.getUser().setActive(true);
 		employee.getUser().setType(UserType.EMPLOYEE.toString());
+		log.info("Employee Code:{}, password:{}",employee.getCode(),employee.getUser().getPassword());
 	}
 
 	/**
