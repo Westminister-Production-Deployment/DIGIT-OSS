@@ -1,26 +1,32 @@
 package org.egov.pgr.service;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.egov.common.contract.request.RequestInfo;
 import org.egov.pgr.config.PGRConfiguration;
 import org.egov.pgr.producer.Producer;
 import org.egov.pgr.repository.PGRRepository;
 import org.egov.pgr.util.MDMSUtils;
 import org.egov.pgr.validator.ServiceRequestValidator;
-import org.egov.pgr.web.models.ServiceWrapper;
 import org.egov.pgr.web.models.RequestSearchCriteria;
 import org.egov.pgr.web.models.ServiceRequest;
+import org.egov.pgr.web.models.ServiceWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jdk.internal.org.jline.utils.Log;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
 
 @org.springframework.stereotype.Service
+@Slf4j
 public class PGRService {
 
 
@@ -87,9 +93,9 @@ public class PGRService {
         enrichmentService.enrichSearchRequest(requestInfo, criteria);
 
         try {
-			Log.info("Criteria:{}",new ObjectMapper().writeValueAsString(criteria));
+			log.info("Criteria:{}",new ObjectMapper().writeValueAsString(criteria));
 		} catch (JsonProcessingException e) {
-			Log.error("error:{}",e);
+			log.error("error:{}",e);
 		}
         if(criteria.isEmpty())
             return new ArrayList<>();
