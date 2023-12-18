@@ -62,6 +62,7 @@ public class PGRRepository {
     public List<Service> getServices(RequestSearchCriteria criteria) {
         List<Object> preparedStmtList = new ArrayList<>();
         String query = queryBuilder.getPGRSearchQuery(criteria, preparedStmtList);
+        log.info("Query:{} \n preparedStatementList:{}",query,preparedStmtList.toString());
         List<Service> services =  jdbcTemplate.query(query, preparedStmtList.toArray(), rowMapper);
         return services;
     }
