@@ -13,6 +13,11 @@ import org.egov.pgr.web.models.ServiceRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jdk.internal.org.jline.utils.Log;
+
 import java.util.*;
 
 @org.springframework.stereotype.Service
@@ -81,6 +86,11 @@ public class PGRService {
 
         enrichmentService.enrichSearchRequest(requestInfo, criteria);
 
+        try {
+			Log.info("Criteria:{}",new ObjectMapper().writeValueAsString(criteria));
+		} catch (JsonProcessingException e) {
+			Log.error("error:{}",e);
+		}
         if(criteria.isEmpty())
             return new ArrayList<>();
 
