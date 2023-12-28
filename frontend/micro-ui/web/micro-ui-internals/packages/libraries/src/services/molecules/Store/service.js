@@ -7,9 +7,9 @@ const getImgUrl = (url, fallbackUrl) => {
   if (!url && fallbackUrl) {
     return fallbackUrl;
   }
-  if (url.includes("s3.ap-south-1.amazonaws.com")) {
+  if (url.includes("s3.me-central-1.amazonaws.com")) {
     const baseDomain = window?.location?.origin;
-    return url.replace("https://s3.ap-south-1.amazonaws.com", baseDomain);
+    return url.replace("https://s3.me-central-1.amazonaws.com", baseDomain);
   }
   return url;
 };
