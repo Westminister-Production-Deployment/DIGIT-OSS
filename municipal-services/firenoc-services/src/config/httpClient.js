@@ -48,7 +48,7 @@ function logRequest(config) {
     // );
     
     logger.info(
-      `Sending request to ${url} with verb ${method} with body ${data}`
+      `Sending request to ${url} with verb ${method} with body ${JSON.stringify(data, null, 2)}`
     );
   } else {
     logger.info(`Sending request to ${url} with verb ${method}`);
