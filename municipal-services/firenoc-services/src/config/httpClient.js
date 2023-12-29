@@ -41,14 +41,10 @@ const createAxiosInstance = hostURL => {
 function logRequest(config) {
   const { url, method, data } = config;
   if (envVariables.HTTP_CLIENT_DETAILED_LOGGING_ENABLED) {
-    // logger.info(
-    //   `Sending request to ${url} with verb ${method} with body ${JSON.stringify(
-    //     data
-    //   )}`
-    // );
-    
     logger.info(
-      `Sending request to ${url} with verb ${method} with body ${JSON.stringify(data, null, 2)}`
+      `Sending request to ${url} with verb ${method} with body ${JSON.stringify(
+        data
+      )}`
     );
   } else {
     logger.info(`Sending request to ${url} with verb ${method}`);
