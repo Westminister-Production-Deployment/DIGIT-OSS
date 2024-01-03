@@ -18,6 +18,12 @@ public class HRMSUtils {
 	@Value("${egov.pwd.allowed.special.characters}")
 	private String allowedPasswordSpecialCharacters;
 	
+	@Value("${egov.hrms.default.pwd.default-value.enabled}")
+	boolean isDefaultPwdWithDefaultValueOn;
+	
+	@Value("${egov.hrms.default.pwd.default-value}")
+	String defaultPwdValue;
+	
 	/**
 	 * Generates random password for the user to login. Process:
 	 * 1. Takes a list of parameters for password
@@ -29,30 +35,35 @@ public class HRMSUtils {
 	 */
 	public String generatePassword(List<String> params) {
 		StringBuilder password = new StringBuilder();
-		SecureRandom random = new SecureRandom();
-		params.add(allowedPasswordSpecialCharacters);
-		try {
-			for(int i = 0; i < params.size(); i++) {
-				String param = params.get(i);
-				String val;
-				if(param.length() == 1)
-					val = param;
-				else
-					val = param.split("")[random.nextInt(param.length() - 1)];
-				if(val.equals(".") || val.equals("-") || val.equals(" "))
-					password.append("x");
-				else
-					password.append(val);
-				if(password.length() == pwdLength)
-					break;
-				else {
-					if(i == params.size() - 1)
-						i = 0;
+		if(isDefaultPwdWithDefaultValueOn) {
+			password.append(this.defaultPwdValue);
+		}else {
+			SecureRandom random = new SecureRandom();
+			params.add(allowedPasswordSpecialCharacters);
+			try {
+				for(int i = 0; i < params.size(); i++) {
+					String param = params.get(i);
+					String val;
+					if(param.length() == 1)
+						val = param;
+					else
+						val = param.split("")[random.nextInt(param.length() - 1)];
+					if(val.equals(".") || val.equals("-") || val.equals(" "))
+						password.append("x");
+					else
+						password.append(val);
+					if(password.length() == pwdLength)
+						break;
+					else {
+						if(i == params.size() - 1)
+							i = 0;
+					}
 				}
+			}catch(Exception e) {
+				password.append("123456");
 			}
-		}catch(Exception e) {
-			password.append("123456");
 		}
+		
 
 		return password.toString().replaceAll("\\s+", "");
 	}
