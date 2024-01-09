@@ -19,11 +19,7 @@ export const httpRequest = async ({
   endPoint = addQueryArg(endPoint, queryObject);
   try {
     // console.log("test");
-    const response = await instance.post(endPoint, requestBody,
-      {
-        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
-        // Other axios options if needed
-      });
+    const response = await instance.post(endPoint, requestBody);
     // console.log("test 2");
     const responseStatus = parseInt(response.status, 10);
     if (responseStatus === 200 || responseStatus === 201) {
