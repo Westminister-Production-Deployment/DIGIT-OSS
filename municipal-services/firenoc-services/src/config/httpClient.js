@@ -1,13 +1,16 @@
 import axios from "axios";
 import logger from "./logger";
 import envVariables from "../envVariables";
+const https=require('https')
+const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 const createAxiosInstance = hostURL => {
   let instance = axios.create({
     baseURL: hostURL,
     headers: {
       "Content-Type": "application/json"
-    }
+    },
+    httpsAgent:httpsAgent
   });
 
   // add interceptor to log before request is made
