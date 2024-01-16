@@ -644,10 +644,10 @@ config:
 #       - work-dir: "utilities/kuberhealthy-checks"
 #         image-name: "kuberhealthy-checks"
 
-#   - name: "builds/digit-dev/utilities/egov-pdf"
-#     build:
-#       - work-dir: "utilities/egov-pdf"
-#         image-name: "egov-pdf"  
+  - name: "builds/digit-dev/utilities/egov-pdf"
+    build:
+      - work-dir: "utilities/egov-pdf"
+        image-name: "egov-pdf"
 
 #   - name: "builds/digit-dev/utilities/epass-chatbot"
 #     build:
