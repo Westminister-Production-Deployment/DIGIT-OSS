@@ -201,6 +201,16 @@ const tlAccess = () => {
   return TL_ACCESS?.length > 0;
 };
 
+const wsAccess = () => {
+  const userInfo = Digit.UserService.getUser();
+  const userRoles = userInfo?.info?.roles?.map((roleData) => roleData.code);
+  const wsRoles = ["WS_CEMP", "WS_APPROVER", "WS_FIELD_INSPECTOR", "WS_DOC_VERIFIER", "WS_CLERK"];
+
+  const WS_ACCESS = userRoles?.filter((role) => tlRoles.includes(role));
+
+  return WS_ACCESS?.length > 0;
+}
+
 const mCollectAccess = () => {
   const userInfo = Digit.UserService.getUser();
   const userRoles = userInfo?.info?.roles?.map((roleData) => roleData.code);
