@@ -12,6 +12,7 @@ import org.egov.mdms.model.ModuleDetail;
 import org.egov.tracer.model.CustomException;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 
@@ -22,7 +23,11 @@ import net.minidev.json.JSONArray;
 @Slf4j
 public class MDMSService {
     public Map<String, Map<String, JSONArray>> searchMaster(MdmsCriteriaReq mdmsCriteriaReq) {
-
+    	try {
+			log.info("MDMS request:{}",new ObjectMapper().writeValueAsString(mdmsCriteriaReq));
+		} catch (JsonProcessingException e) {
+			log.info("Error:{}",e);
+		}
         Map<String, Map<String, Map<String, JSONArray>>> tenantIdMap = MDMSApplicationRunnerImpl.getTenantMap();
 
         String tenantId = mdmsCriteriaReq.getMdmsCriteria().getTenantId();
